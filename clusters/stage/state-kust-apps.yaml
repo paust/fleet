@@ -1,5 +1,15 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
-resources:
-    - ./../../apps/app_demo.yaml
+metadata:
+  name: apps
+  namespace: flux-system
+spec:
+  interval: 0m30s
+  path: ./../../apps/
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: apps
+  validation: client
 
