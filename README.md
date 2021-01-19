@@ -64,16 +64,46 @@ flux bootstrap github
 results in 
 ![no Pictures available](./images/bootstrap.jpg "Bootstrapping process")
 
-running pods 
+## Testing the results 
+
+### running pods:   
 kubectl get pods -n default  
 ![](./images/podinfo_pod.jpg "Running Pods podinfo")  
 
+pods on the staging namespace  
 kubectl get pods -n staging   
 ![](./images/demoapp_pod.jpg "Running Pods for demoapp")
 
-kubectl get services 
-kubectl get pods -n staging   
+### running services:  
+services on the default namespace  
+kubectl get services  
 ![](./images/services.jpg "services for podinfo")
+
+services on the staging namespace  
+kubectl get services -n staging  
+![](./images/services_staging.jpg "services for demoapp")
+
+
+### flux output:  
+all helm releases  
+flux get helmreleases  
+![](./images/helmrelease.jpg "all helmreleases")
+
+all git sources  
+flux get sources git  
+![](./images/gitsources.jpg "all git sources")
+
+all kustomizations  
+flux get kustomizations  
+![](./images/kustomizations.jpg "all kustomizations")
+
+lets have a try:  
+
+kubectl port-forward -n staging service/staging-demoapp-devops-toolkit 8081:80  
+![](./images/demoapp_screenshot.jpg "Screenshot demoapp")
+
+kubectl port-forward service/podinfo 8080:9898   
+![](./images/podinfo_screenshot.jpg "Screenshot poinfoapp")
 
 
 
