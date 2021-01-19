@@ -65,7 +65,16 @@ results in
 ![no Pictures available](./images/bootstrap.jpg "Bootstrapping process")
 
 running pods 
-![](./images/podinfo_pod.jpg "Running Pods")
+kubectl get pods -n default  
+![](./images/podinfo_pod.jpg "Running Pods podinfo")  
+
+kubectl get pods -n staging   
+![](./images/demoapp_pod.jpg "Running Pods for demoapp")
+
+kubectl get services 
+kubectl get pods -n staging   
+![](./images/services.jpg "services for podinfo")
+
 
 
 
